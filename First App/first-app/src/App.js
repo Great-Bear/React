@@ -5,10 +5,16 @@ import'./App.css'
 
 function App(){
     let name = "React";
+
+    let article1 ={
+        title:"react",
+        text: "dfsfdfsdf"
+    }
+
     return (
          <div>
              <header>Header</header>
-         <Article/>
+         <Article articleData={article1}/>
         </div>
     )
 }

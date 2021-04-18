@@ -1,6 +1,10 @@
 import React from 'react'
 
-function Article(){
+function Article(props){
+
+    let {articleData: article1} = props;
+
+
     let article ={
         title: "React",
         text: "React is very good think"
@@ -13,7 +17,8 @@ function Article(){
     return(
         <article style={articleStyles}>
             <h1>{article.title}</h1>
-            <p>{article.text}</p>
+            <p>{article.text.substr(0,15)}</p>
+            <button onClick={()=>{console.log('clicked')}}>Text open</button>
         </article>
     )
 }
