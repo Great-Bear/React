@@ -1,0 +1,10 @@
+#content
+{
+    background-color: rgb(144, 243, 131);
+    width: 900px;
+    border: 5px red solid;
+}
+#content > p:first-child
+{
+  margin: 0px;
+}
