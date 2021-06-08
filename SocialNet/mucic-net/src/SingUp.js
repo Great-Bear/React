@@ -1,5 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom'
+import './css/SingUp.css'
 
 class SingUp extends React.Component{
 
@@ -23,30 +24,45 @@ class SingUp extends React.Component{
         let instrument = document.getElementById("Instument").value;
         let sex = document.getElementById("Sex").value;
         let describe = document.getElementById("Describe").value;
-
-
-        fetch(`${pathServer}${login}/${password}/${name}/${surName}/${instrument}/${sex}/${describe}`)
-        .then(res => res.text())
-        .then(
-            idUser => {
-                alert(idUser);
-                if(idUser > 0){             
-                    this.setState((preState)=>{    
-                        return{
-                            pathPage: preState.pathPage + idUser,
-                            isLogged: true,
-                            UserId: idUser
-                        }
-                    })
-                }
-                else{
-                    alert("Such user still exist");
-                }
+        if(describe.length == 0){
+            describe = 'NULL';
+        }
+        let user = {
+            Login: document.getElementById("Login").value,
+            Password: document.getElementById("Password").value,
+            Name: document.getElementById("Name").value,
+            SurName: document.getElementById("SurName").value,
+            Instrument: document.getElementById("Instument").value,
+            Sex: document.getElementById("Sex").value,
+            Describe: document.getElementById("Describe").value
+          };
+        let response = fetch('https://localhost:44317/api/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8'
             },
-            error => {
-            alert("operation failed, call support");
-            }
-        )
+            body: JSON.stringify(user)
+          }).then(res => res.text())
+          .then(
+              idUser => {
+                  alert(idUser);
+                  if(idUser > 0){             
+                      this.setState((preState)=>{    
+                          return{
+                              pathPage: preState.pathPage + idUser,
+                              isLogged: true,
+                              UserId: idUser
+                          }
+                      })
+                  }
+                  else{
+                      alert("Such user still exist");
+                  }
+              },
+              error => {
+                  alert("operation failed, call support");
+              }
+          )       
     }
 render(){
     if(this.state.isLogged){
@@ -63,7 +79,7 @@ render(){
 
                 <div className="form-floating">
                     <label for="Login">Email address</label>
-                    <input type="text" className="form-control" id="Login"  placeholder="Login"/>           
+                    <input type="text" className="form-control" id="Login" placeholder="Login"/>           
                 </div>
 
                 <div className="form-floating">
@@ -97,7 +113,7 @@ render(){
                 <div className="form-floating">
                     <label>Describe</label>
                     <br></br>
-                    <textarea id="Describe"></textarea>
+                    <textarea id="Describe" className="form-control"></textarea>
                 </div>
                 
                 <button className="w-100 btn btn-lg btn-primary" onClick={this.buttonClickHandler}> Sign in</button>

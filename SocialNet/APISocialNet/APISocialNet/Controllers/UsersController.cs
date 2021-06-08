@@ -66,8 +66,24 @@ namespace WebAPIApp.Controllers
                 return NotFound();
             return new ObjectResult(user);
         }
-        [HttpGet("{login}/{password}/{name}/{surName}/{instument}/{sex}/{describe}")]
-        public ActionResult<string> Get(string login, string password,string name,string surName, 
+        [HttpPost]
+        public ActionResult<string> Post(User newUser)
+        {
+            int lastUserId = 0;
+           
+                db.Users.Add(newUser);
+                db.SaveChanges();
+
+               var lastUser = db.Users
+                          .OrderBy(p => p.Id)
+                          .Last();
+                lastUserId = lastUser.Id;
+            return new ObjectResult(lastUserId.ToString());
+        }
+
+        /*
+         [HttpPost("{login}/{password}/{name}/{surName}/{instument}/{sex}/{describe}")]
+        public ActionResult<string> Post(string login, string password,string name,string surName, 
                                         string instument,string sex,string describe)
         {
             int lastUserId = 0;
@@ -94,6 +110,8 @@ namespace WebAPIApp.Controllers
                 lastUserId = lastUser.Id;
             }
             return new ObjectResult(lastUserId.ToString());
-        }      
+        } 
+         */
+
     }
 }
