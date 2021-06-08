@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\HM\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj": {}
+    "C:\\Users\\Groh_8npy\\Desktop\\React\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj": {}
   },
   "projects": {
-    "D:\\HM\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj": {
+    "C:\\Users\\Groh_8npy\\Desktop\\React\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\HM\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj",
+        "projectUniqueName": "C:\\Users\\Groh_8npy\\Desktop\\React\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj",
         "projectName": "APISocialNet",
-        "projectPath": "D:\\HM\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj",
-        "packagesPath": "C:\\Users\\Bogdan\\.nuget\\packages\\",
-        "outputPath": "D:\\HM\\React\\SocialNet\\APISocialNet\\APISocialNet\\obj\\",
+        "projectPath": "C:\\Users\\Groh_8npy\\Desktop\\React\\React\\SocialNet\\APISocialNet\\APISocialNet\\APISocialNet.csproj",
+        "packagesPath": "C:\\Users\\Groh_8npy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Groh_8npy\\Desktop\\React\\React\\SocialNet\\APISocialNet\\APISocialNet\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Bogdan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Groh_8npy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,7 +49,7 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             }
           },
           "imports": [
@@ -67,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

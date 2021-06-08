@@ -8,7 +8,14 @@
       "TRACE",
       "DEBUG",
       "NETCOREAPP",
-      "NETCOREAPP3_1"
+      "NETCOREAPP3_1",
+      "NETCOREAPP1_0_OR_GREATER",
+      "NETCOREAPP1_1_OR_GREATER",
+      "NETCOREAPP2_0_OR_GREATER",
+      "NETCOREAPP2_1_OR_GREATER",
+      "NETCOREAPP2_2_OR_GREATER",
+      "NETCOREAPP3_0_OR_GREATER",
+      "NETCOREAPP3_1_OR_GREATER"
     ],
     "languageVersion": "8.0",
     "platform": "",
@@ -25,7 +32,7 @@
       "APISocialNet/1.0.0": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Cors": "5.2.7",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.5",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.6",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -441,10 +448,10 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/5.0.5": {
+      "Microsoft.EntityFrameworkCore/5.0.6": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.5",
-          "Microsoft.EntityFrameworkCore.Analyzers": "5.0.5",
+          "Microsoft.EntityFrameworkCore.Abstractions": "5.0.6",
+          "Microsoft.EntityFrameworkCore.Analyzers": "5.0.6",
           "Microsoft.Extensions.Caching.Memory": "5.0.0",
           "Microsoft.Extensions.DependencyInjection": "5.0.1",
           "Microsoft.Extensions.Logging": "5.0.0",
@@ -454,50 +461,50 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll": {
-            "assemblyVersion": "5.0.5.0",
-            "fileVersion": "5.0.521.16102"
+            "assemblyVersion": "5.0.6.0",
+            "fileVersion": "5.0.621.21307"
           }
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/5.0.5": {
+      "Microsoft.EntityFrameworkCore.Abstractions/5.0.6": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "5.0.5.0",
-            "fileVersion": "5.0.521.16102"
+            "assemblyVersion": "5.0.6.0",
+            "fileVersion": "5.0.621.21307"
           }
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/5.0.5": {},
-      "Microsoft.EntityFrameworkCore.Relational/5.0.5": {
+      "Microsoft.EntityFrameworkCore.Analyzers/5.0.6": {},
+      "Microsoft.EntityFrameworkCore.Relational/5.0.6": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "5.0.5",
+          "Microsoft.EntityFrameworkCore": "5.0.6",
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {
-            "assemblyVersion": "5.0.5.0",
-            "fileVersion": "5.0.521.16102"
+            "assemblyVersion": "5.0.6.0",
+            "fileVersion": "5.0.621.21307"
           }
         },
         "compile": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Relational.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/5.0.5": {
+      "Microsoft.EntityFrameworkCore.SqlServer/5.0.6": {
         "dependencies": {
           "Microsoft.Data.SqlClient": "2.0.1",
-          "Microsoft.EntityFrameworkCore.Relational": "5.0.5"
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.6"
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.SqlServer.dll": {
-            "assemblyVersion": "5.0.5.0",
-            "fileVersion": "5.0.521.16102"
+            "assemblyVersion": "5.0.6.0",
+            "fileVersion": "5.0.621.21307"
           }
         },
         "compile": {
@@ -3424,40 +3431,40 @@
       "path": "microsoft.data.sqlclient.sni.runtime/2.0.1",
       "hashPath": "microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore/5.0.5": {
+    "Microsoft.EntityFrameworkCore/5.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lBIGKXhduT94Qats0ImMma9NWnsSLhz04JdD+Mi7DeCDPd3hiA668jREzCiLb9FqcmAIrLx8pxIo9cwjEHfYtQ==",
-      "path": "microsoft.entityframeworkcore/5.0.5",
-      "hashPath": "microsoft.entityframeworkcore.5.0.5.nupkg.sha512"
+      "sha512": "sha512-uEqAprroH469aPCZm4iPA1oD8/YDqEQT9QjINkq4HWFA2kRh7Dm2lXX4uZ4MAzpcxoWCqKni2KbLqG8I0KnGqw==",
+      "path": "microsoft.entityframeworkcore/5.0.6",
+      "hashPath": "microsoft.entityframeworkcore.5.0.6.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/5.0.5": {
+    "Microsoft.EntityFrameworkCore.Abstractions/5.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jS7+hySzNS9wCmREbWTVaa5EA+aLT7wb1Si1jhMgAiGrbLQSj6wPnS8WbhO5a7iAq45pDEK0KghtrPDFjfTxVw==",
-      "path": "microsoft.entityframeworkcore.abstractions/5.0.5",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.5.0.5.nupkg.sha512"
+      "sha512": "sha512-mZCwrwaiE3dSfJZZLihPueGJ2L5/vPU8VPpz21lErYIMmtZmxfSqocXe65bLlwMQ6EO/OcW7P+tvHWPsrAzMTg==",
+      "path": "microsoft.entityframeworkcore.abstractions/5.0.6",
+      "hashPath": "microsoft.entityframeworkcore.abstractions.5.0.6.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/5.0.5": {
+    "Microsoft.EntityFrameworkCore.Analyzers/5.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-czVyD5h0etXlrFHln0GPwlhmNm4yFe8vA/xfW/oN26OT8AAWkA6YPjr+z68/kmPqMWFo8UHxvDBZ9g2TiJY9qQ==",
-      "path": "microsoft.entityframeworkcore.analyzers/5.0.5",
-      "hashPath": "microsoft.entityframeworkcore.analyzers.5.0.5.nupkg.sha512"
+      "sha512": "sha512-PhcaRr/5NgTVjm43ITSPSYQGYCUkyuBV1gEDipLnDZI+VsYwyr2HH8pHXDUaY1E6dkZoiWNRt+XNMAsK3qDIKQ==",
+      "path": "microsoft.entityframeworkcore.analyzers/5.0.6",
+      "hashPath": "microsoft.entityframeworkcore.analyzers.5.0.6.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Relational/5.0.5": {
+    "Microsoft.EntityFrameworkCore.Relational/5.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-D+9me6olfUKpti0WkMFsKk9T4uTPZ+3mg/NIwq1Fhp/qQAu9yg2FZTUa0O8ugGuiGyJHfi8tMvh+iCL0LTpG4g==",
-      "path": "microsoft.entityframeworkcore.relational/5.0.5",
-      "hashPath": "microsoft.entityframeworkcore.relational.5.0.5.nupkg.sha512"
+      "sha512": "sha512-zzmO/cAcvsFeU3Ey6643GiLl4hCgGpWdcCW8LHsHP35zmfTirnjm2PrB+wf1wYQlPNyGT9+uypbVSoOopg58Mg==",
+      "path": "microsoft.entityframeworkcore.relational/5.0.6",
+      "hashPath": "microsoft.entityframeworkcore.relational.5.0.6.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/5.0.5": {
+    "Microsoft.EntityFrameworkCore.SqlServer/5.0.6": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-f5cjySGx1VSRSzKyu/z2qZJzDbVV7L+jcLnb7+ySs3ctyfO3lqul7x9xM+P5326EyFLva8/ILQLv35L9w3EDFA==",
-      "path": "microsoft.entityframeworkcore.sqlserver/5.0.5",
-      "hashPath": "microsoft.entityframeworkcore.sqlserver.5.0.5.nupkg.sha512"
+      "sha512": "sha512-OQFZB8hOaaU+VO62MHdkAVkPbfH+Yx8Kp+Bp+LKnmX7HxDGe/8DEOJSoHKAE8gFUTaSnJ5/OvBKNxXefeAyT0g==",
+      "path": "microsoft.entityframeworkcore.sqlserver/5.0.6",
+      "hashPath": "microsoft.entityframeworkcore.sqlserver.5.0.6.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
       "type": "package",
@@ -3637,7 +3644,7 @@
     "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-c3YNH1GQJbfIPJeCnr4avseugSqPrxwIqzthYyZDN6EuOyNOzq+y2KSUfRcXauya1sF4foESTgwM5e1A8arAKw==",
+      "sha512": "sha512-LdIvj7Bi2jiaNTqY/ezZGVXHe1KI5fjLSI026O1TjVzsmdgTP/zTF+f3nwHCjwttyhsPBEiswv0PekimPWZwWg==",
       "path": "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
@@ -3651,7 +3658,7 @@
     "runtime.native.System.IO.Compression/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
+      "sha512": "sha512-b+V9JC/Ii3sR659flBeaBJww111425tgjcDS1k+hqV4sGh9FALRDBvJnDtQ895gAzpPTUOFDHdqaZ2Et7BpZMg==",
       "path": "runtime.native.system.io.compression/4.3.0",
       "hashPath": "runtime.native.system.io.compression.4.3.0.nupkg.sha512"
     },
@@ -3693,7 +3700,7 @@
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==",
+      "sha512": "sha512-Kh9W4agE0r/hK8AX1LvyQI2NrKHBL8pO0gRoDTdDb0LL6Ta1Z2OtFx3lOaAE0ZpCUc/dt9Wzs3rA7a3IsKdOVA==",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "hashPath": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512"
     },
@@ -3714,7 +3721,7 @@
     "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ytoewC6wGorL7KoCAvRfsgoJPJbNq+64k2SqW6JcOAebWsFUvCCYgfzQMrnpvPiEl4OrblUlhF2ji+Q1+SVLrQ==",
+      "sha512": "sha512-JGc0pAWRE8lB4Ucygk2pYSKbUPLlAIq6Bczf5/WF2D/VKJEPtYlVUMxk8fbl1zRfTWzSHi+VcFZlaPlWiNxeKg==",
       "path": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
@@ -3777,7 +3784,7 @@
     "System.Collections.Specialized/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
+      "sha512": "sha512-NoPBj0ykejqAWW4p4gGtrrL+3c84ZLSvGnHgq422ew1Rj4WKj1FA8/BCybqC111EtgcqUl6ZJNFYYS22HLgbjA==",
       "path": "system.collections.specialized/4.3.0",
       "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
     },
@@ -4113,7 +4120,7 @@
     "System.Runtime.Serialization.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
+      "sha512": "sha512-2Z5t70a2SwMsfQDp9KOclaZNyQhfIga2gppq9lIUDM1A4ohTshn4JqT7ir8bvIhXgorWKYDAr6rPzEbi/nTGKg==",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
     },
@@ -4141,7 +4148,7 @@
     "System.Security.Cryptography.Csp/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-X4s/FCkEUnRGnwR3aSfVIkldBmtURMhmexALNTwpjklzxWU7yjMk7GHLKOZTNkgnWnE0q7+BCf9N2LVRWxewaA==",
+      "sha512": "sha512-yO2k5o+Z+DiFRBvvB9vdRRAGHi6bm02M9OWXfCqQ8K0UxD3Woc3svQheZfb7PoTEFs0kGacO0IzzMWsb6Mkeow==",
       "path": "system.security.cryptography.csp/4.3.0",
       "hashPath": "system.security.cryptography.csp.4.3.0.nupkg.sha512"
     },
@@ -4155,7 +4162,7 @@
     "System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-h4CEgOgv5PKVF/HwaHzJRiVboL2THYCou97zpmhjghx5frc7fIvlkY1jL+lnIQyChrJDMNEXS6r7byGif8Cy4w==",
+      "sha512": "sha512-vOYy7Jv9KsG3ld2hLt0GoERd82SZi4BelrbXLwI9yFBYX7kpbvUCWYo4eyevk47cuJXZ9ZLVAryANcc7iY71aA==",
       "path": "system.security.cryptography.openssl/4.3.0",
       "hashPath": "system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },

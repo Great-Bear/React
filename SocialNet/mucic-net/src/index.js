@@ -16,13 +16,23 @@ function SetIdUser(id){
     idUser = id;
 }
 
+let PreButton = undefined;
+function SetPreButton(preButton){
+    PreButton = preButton;
+}
+
+function ActiveButton(){
+    if(PreButton != undefined)
+    PreButton.className = 'nav-link active';
+}
+
 ReactDOM.render(
     <div>
        <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={()=> <Signin/> } />
                 <Route exact path="/SingUp" component={()=> <SingUp/> } />
-                <Route path="/about" children={()=><h2> <About/> </h2>} />  
+                <Route path="/about" children={()=><h2> <About SetPreButton={SetPreButton} ActiveButton={ActiveButton} /> </h2>} />  
                 <Route path="/UserPage/:id?" children={()=> <UserPage SetId={SetIdUser}  currentUserID={idUser} />}  />                           
                 <Route component={NotFound} />
             </Switch>

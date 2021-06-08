@@ -43,8 +43,10 @@ class Personal_info extends React.Component{
                 this.SetId(idUser);  
             },
             error => {
-             if(this.id != -1)
-            alert("operation failed, call support");
+                if(this.id != -1)
+                {
+                    //alert("operation failed, call support");
+                }
             }
         )
     }

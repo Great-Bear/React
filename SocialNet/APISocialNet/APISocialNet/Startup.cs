@@ -19,9 +19,8 @@ namespace WebAPIApp
         public void ConfigureServices(IServiceCollection services)
         {
             string con = "Server=(local);Database=UserDB;Trusted_Connection=True;MultipleActiveResultSets=true";
-           //  устанавливаем контекст данных
             services.AddDbContext<UsersContext>(options => options.UseSqlServer(con));
-            services.AddControllers(); // используем контроллеры без представлений
+            services.AddControllers(); 
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
