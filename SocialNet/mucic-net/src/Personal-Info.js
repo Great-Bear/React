@@ -107,24 +107,30 @@ class Personal_info extends React.Component{
               .then(
                   idUser => {
                       alert(idUser);
-                     /* if(idUser > 0){             
-                          this.setState((preState)=>{    
-                              return{
-                                  pathPage: preState.pathPage + idUser,
-                                  isLogged: true,
-                                  UserId: idUser
-                              }
-                          })
+                      if(idUser > 0){          
+                          this.setState((prevState) => {
+                            prevState.name = 'change';
+                            return {
+                                countSubscribe: 0,
+                                name: "dataProfile.name",
+                                surname: "dataProfile.name",
+                                instrument: "dataProfile.name",
+                                sex: "dataProfile.name",
+                                describe: "dataProfile.name",
+                            }
+                        });
+                        console.log(this.state);
                       }
                       else{
                           alert("Such user still exist");
                       }
-                      */
+                      
                   },
                   error => {
                       alert("operation failed, call support");
                   }
-              )       
+              )    
+             
             document.getElementById("saveForm").hidden = true;
             document.getElementById("changeForm").hidden = false;
         }

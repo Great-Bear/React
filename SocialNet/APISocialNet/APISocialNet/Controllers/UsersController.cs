@@ -74,6 +74,7 @@ namespace WebAPIApp.Controllers
                        .FirstOrDefault();
 
             EditUser.Name = newUser.Name;
+            EditUser.Surname = newUser.Surname;
 
             db.SaveChanges();
 
