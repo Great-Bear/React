@@ -67,7 +67,8 @@ class Personal_info extends React.Component{
             for(let item2 of item.children){
                 if(item2.nodeName == "P"){
                     let textItem = item2.textContent;
-                    item2.outerHTML = `<input type="text" value="${textItem}" class="inptChange"></input>`;
+                    let idOld = item2.id;                 
+                    item2.outerHTML = `<input type="text" value="${textItem}" class="inptChange" id="${idOld}"></input>`;
                 }      
             }     
         }   
@@ -79,25 +80,28 @@ class Personal_info extends React.Component{
             for(let item of document.getElementById("personal-info").children){
                 for(let item2 of item.children){
                     if(item2.nodeName == "INPUT"){
+                        let idOld = item2.id;
                         let textItem = item2.value;
-                        item2.outerHTML = `<p>${textItem}</p>`;
+                        item2.outerHTML = `<p id="${idOld}">${textItem}</p>`;
                     }         
                 }  
             }   
             let pathPage = window.location.href;
             let idUser = pathPage.substring(pathPage.lastIndexOf('/') + 1,pathPage.length);
             idUser = parseInt(idUser);
+
             let user = {
                 id: idUser,
-                Login: 'document.getElementById("Login").value',
-                Password: 'document.getElementById("Password").value',
-                Name: '2222',
-                SurName: 'document.getElementById("SurName").value',
-                Instrument: 'document.getElementById("Instument").value',
-                Sex: 'document.getElementById("Sex").value',
-                Describe: 'document.getElementById("Describe").value'
+                Login: ' ',
+                Password: ' ',
+                Name: document.getElementById("Name").textContent,
+                SurName: document.getElementById("SurName").textContent,
+                Instrument: document.getElementById("Instrument").textContent,
+                Sex: document.getElementById("Sex").textContent,
+                Describe: document.getElementById("Describe").textContent
               };
-            let response = fetch('https://localhost:44317/api/users', {
+              console.log(user);
+                fetch('https://localhost:44317/api/users', {
                 method: 'PUT',
                 headers: {
                   'Content-Type': 'application/json;charset=utf-8'
@@ -108,21 +112,10 @@ class Personal_info extends React.Component{
                   idUser => {
                       alert(idUser);
                       if(idUser > 0){          
-                          this.setState((prevState) => {
-                            prevState.name = 'change';
-                            return {
-                                countSubscribe: 0,
-                                name: "dataProfile.name",
-                                surname: "dataProfile.name",
-                                instrument: "dataProfile.name",
-                                sex: "dataProfile.name",
-                                describe: "dataProfile.name",
-                            }
-                        });
-                        console.log(this.state);
+
                       }
                       else{
-                          alert("Such user still exist");
+                          alert("Error call support");
                       }
                       
                   },
@@ -140,19 +133,19 @@ class Personal_info extends React.Component{
         return(
                 <div id="personal-info">
                     <div>
-                        <span>Name: </span><p class="PersInfo">{this.state.name}</p>
+                        <span>Name: </span><p class="PersInfo" id="Name">{this.state.name}</p>
                     </div>
                     <div>
-                        <span>SurName: </span><p class="PersInfo">{this.state.surname}</p>
+                        <span>SurName: </span><p class="PersInfo" id="SurName">{this.state.surname}</p>
                     </div>
                     <div>
-                        <span>Instrument: </span><p class="PersInfo">{this.state.instrument}</p>
+                        <span>Instrument: </span><p class="PersInfo" id="Instrument">{this.state.instrument}</p>
                     </div>
                     <div>
-                        <span>Sex: </span><p class="PersInfo">{this.state.sex}</p><br/>
+                        <span>Sex: </span><p class="PersInfo" id="Sex">{this.state.sex}</p><br/>
                     </div>
                     <div>
-                        <span>My describe:</span><p class="PersInfo">{this.state.describe}</p><br/>
+                        <span>My describe:</span><p class="PersInfo" id="Describe">{this.state.describe}</p><br/>
                     </div>
                     <div>
                         <button onClick={this.buttonClickHandler}>Subscribe</button>

@@ -75,6 +75,9 @@ namespace WebAPIApp.Controllers
 
             EditUser.Name = newUser.Name;
             EditUser.Surname = newUser.Surname;
+            EditUser.Instrument = newUser.Instrument;
+            EditUser.Sex = newUser.Sex;
+            EditUser.Describe = newUser.Describe;
 
             db.SaveChanges();
 
@@ -94,39 +97,5 @@ namespace WebAPIApp.Controllers
                 lastUserId = lastUser.Id;
             return new ObjectResult(lastUserId.ToString());
         }
-
-
-        /*
-         [HttpPost("{login}/{password}/{name}/{surName}/{instument}/{sex}/{describe}")]
-        public ActionResult<string> Post(string login, string password,string name,string surName, 
-                                        string instument,string sex,string describe)
-        {
-            int lastUserId = 0;
-            if (db.Users.Any(user => user.Name == name && user.Surname == surName))
-            {
-                lastUserId = 0;
-            }
-            else
-            {
-                var newUser = new User();
-                newUser.Login = login;
-                newUser.Password = password;
-                newUser.Name = name;
-                newUser.Surname = surName;
-                newUser.Instrument = instument;
-                newUser.Sex = sex;
-                newUser.Describe = describe;
-                db.Users.Add(newUser);
-                db.SaveChanges();
-
-               var lastUser = db.Users
-                          .OrderBy(p => p.Id)
-                          .Last();
-                lastUserId = lastUser.Id;
-            }
-            return new ObjectResult(lastUserId.ToString());
-        } 
-         */
-
     }
 }
