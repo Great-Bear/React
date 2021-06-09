@@ -66,6 +66,19 @@ namespace WebAPIApp.Controllers
                 return NotFound();
             return new ObjectResult(user);
         }
+        [HttpPut]
+        public ActionResult<string> Put(User newUser)
+        {
+              var EditUser = db.Users
+                       .Where(user => user.Id == newUser.Id)
+                       .FirstOrDefault();
+
+            EditUser.Name = newUser.Name;
+
+            db.SaveChanges();
+
+            return new ObjectResult(1);
+        }
         [HttpPost]
         public ActionResult<string> Post(User newUser)
         {
@@ -80,6 +93,7 @@ namespace WebAPIApp.Controllers
                 lastUserId = lastUser.Id;
             return new ObjectResult(lastUserId.ToString());
         }
+
 
         /*
          [HttpPost("{login}/{password}/{name}/{surName}/{instument}/{sex}/{describe}")]

@@ -20,6 +20,7 @@ class Personal_info extends React.Component{
 
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
         this.buttonClickChange = this.buttonClickChange.bind(this);
+        this.buttonClickReChange = this.buttonClickReChange.bind(this);
     }
     componentDidMount(){
         let pathPage = window.location.href;
@@ -83,6 +84,47 @@ class Personal_info extends React.Component{
                     }         
                 }  
             }   
+            let pathPage = window.location.href;
+            let idUser = pathPage.substring(pathPage.lastIndexOf('/') + 1,pathPage.length);
+            idUser = parseInt(idUser);
+            let user = {
+                id: idUser,
+                Login: 'document.getElementById("Login").value',
+                Password: 'document.getElementById("Password").value',
+                Name: '2222',
+                SurName: 'document.getElementById("SurName").value',
+                Instrument: 'document.getElementById("Instument").value',
+                Sex: 'document.getElementById("Sex").value',
+                Describe: 'document.getElementById("Describe").value'
+              };
+            let response = fetch('https://localhost:44317/api/users', {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(user)
+              }).then(res => res.text())
+              .then(
+                  idUser => {
+                      alert(idUser);
+                     /* if(idUser > 0){             
+                          this.setState((preState)=>{    
+                              return{
+                                  pathPage: preState.pathPage + idUser,
+                                  isLogged: true,
+                                  UserId: idUser
+                              }
+                          })
+                      }
+                      else{
+                          alert("Such user still exist");
+                      }
+                      */
+                  },
+                  error => {
+                      alert("operation failed, call support");
+                  }
+              )       
             document.getElementById("saveForm").hidden = true;
             document.getElementById("changeForm").hidden = false;
         }
