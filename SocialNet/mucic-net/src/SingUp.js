@@ -27,6 +27,15 @@ class SingUp extends React.Component{
         if(describe.length == 0){
             describe = 'NULL';
         }
+        const formData = new FormData(); 
+      console.log(document.getElementById("Picture").files[0]);
+      formData.append( 
+        "myFile", 
+        document.getElementById("Picture").files[0], 
+        document.getElementById("Picture").files[0].name 
+      ); 
+      console.log(formData);
+        return;
         let user = {
             Login: document.getElementById("Login").value,
             Password: document.getElementById("Password").value,
@@ -114,6 +123,12 @@ render(){
                     <label>Describe</label>
                     <br></br>
                     <textarea id="Describe" className="form-control"></textarea>
+                </div>
+
+                <div className="form-floating">
+                    <label>Picture</label>
+                    <br></br>
+                    <input type="file" id="Picture"></input>
                 </div>
                 
                 <button className="w-100 btn btn-lg btn-primary" onClick={this.buttonClickHandler}> Sign in</button>
