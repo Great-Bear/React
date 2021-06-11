@@ -25,7 +25,10 @@ class Nav extends React.Component{
                     </li>  
                     <li class="nav-item"><NavLink to="/UserPage/" activeClassName="active">
                        <span class="nav-link" aria-current="page" >Home</span></NavLink>
-                    </li>                   
+                    </li> 
+                    <li class="nav-item"><NavLink to="/Search" activeClassName="active">
+                       <span class="nav-link" aria-current="page" >Search</span></NavLink>
+                    </li>                  
                 </ul>
               </nav>;
     }

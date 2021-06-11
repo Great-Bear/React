@@ -14,6 +14,7 @@ namespace APISocialNet.Models
         public string Surname { get; set; }
         public string Instrument { get; set; }
         public string Sex { get; set; }
+        public string Phone { get; set; } = "Null";
         public string Describe { get; set; }
     }
 }

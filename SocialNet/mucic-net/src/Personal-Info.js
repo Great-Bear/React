@@ -13,6 +13,7 @@ class Personal_info extends React.Component{
             surname: "dataProfile.name",
             instrument: "dataProfile.name",
             sex: "dataProfile.name",
+            phone: "dataProfile.name",
             describe: "dataProfile.name",
         }
         this.SetId = props.setId;
@@ -39,6 +40,7 @@ class Personal_info extends React.Component{
                     surname: data.surname,
                     instrument: data.instrument,
                     sex: data.sex,
+                    phone: data.phone,
                     describe: data.describe
                 }) 
                 this.SetId(idUser);  
@@ -98,6 +100,7 @@ class Personal_info extends React.Component{
                 SurName: document.getElementById("SurName").textContent,
                 Instrument: document.getElementById("Instrument").textContent,
                 Sex: document.getElementById("Sex").textContent,
+                Phone: document.getElementById("Phone").textContent,
                 Describe: document.getElementById("Describe").textContent
               };
               console.log(user);
@@ -143,6 +146,9 @@ class Personal_info extends React.Component{
                     </div>
                     <div>
                         <span>Sex: </span><p class="PersInfo" id="Sex">{this.state.sex}</p><br/>
+                    </div>
+                    <div>
+                        <span>Phone: </span><p class="PersInfo" id="Phone">{this.state.phone}</p><br/>
                     </div>
                     <div>
                         <span>My describe:</span><p class="PersInfo" id="Describe">{this.state.describe}</p><br/>

@@ -18,7 +18,7 @@ namespace WebAPIApp
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-            string con = "Server=(local);Database=UserDB;Trusted_Connection=True;MultipleActiveResultSets=true";
+            string con = "Server=(local);Database=UserDB3;Trusted_Connection=True;MultipleActiveResultSets=true";
             services.AddDbContext<UsersContext>(options => options.UseSqlServer(con));
             services.AddControllers(); 
         }
