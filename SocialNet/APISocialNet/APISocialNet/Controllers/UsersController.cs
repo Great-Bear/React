@@ -77,6 +77,7 @@ namespace WebAPIApp.Controllers
             EditUser.Surname = newUser.Surname;
             EditUser.Instrument = newUser.Instrument;
             EditUser.Sex = newUser.Sex;
+            EditUser.Phone = newUser.Phone;
             EditUser.Describe = newUser.Describe;
 
             db.SaveChanges();

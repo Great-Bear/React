@@ -43,6 +43,7 @@ class SingUp extends React.Component{
             SurName: document.getElementById("SurName").value,
             Instrument: document.getElementById("Instument").value,
             Sex: document.getElementById("Sex").value,
+            Phone: document.getElementById("Phone").value,
             Describe: document.getElementById("Describe").value
           };
         let response = fetch('https://localhost:44317/api/users', {
@@ -117,6 +118,11 @@ render(){
                         <option>Male</option>
                         <option>Female</option>
                     </select>           
+                </div>
+
+                <div className="form-floating">
+                    <label for="Phone">Phone</label>
+                    <input type="text" className="form-control"  id="Phone" placeholder="Phone"/>           
                 </div>
 
                 <div className="form-floating">

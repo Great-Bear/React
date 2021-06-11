@@ -6,6 +6,7 @@ import NotFound from './NotFound';
 import UserPage from './UserPage'
 import Signin from './Signin'
 import SingUp from './SingUp'
+import Search from './Search'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './css/index.css'
@@ -33,7 +34,8 @@ ReactDOM.render(
                 <Route exact path="/" component={()=> <Signin/> } />
                 <Route exact path="/SingUp" component={()=> <SingUp/> } />
                 <Route path="/about" children={()=><h2> <About SetPreButton={SetPreButton} ActiveButton={ActiveButton} /> </h2>} />  
-                <Route path="/UserPage/:id?" children={()=> <UserPage SetId={SetIdUser}  currentUserID={idUser} />}  />                           
+                <Route path="/UserPage/:id?" children={()=> <UserPage SetId={SetIdUser}  currentUserID={idUser} />}  />      
+                <Route path="/Search" component={()=> <Search/>}  />                                    
                 <Route component={NotFound} />
             </Switch>
         </BrowserRouter>
