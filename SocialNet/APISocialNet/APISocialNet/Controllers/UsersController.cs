@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using WebAPIApp.Models;
 using System.Threading.Tasks;
 using APISocialNet.Models;
+using System.Security.Cryptography;
+using System;
+using System.Text;
 
 namespace WebAPIApp.Controllers
 {
@@ -47,6 +50,15 @@ namespace WebAPIApp.Controllers
         {
             return await db.Users.ToListAsync();
         }
+        [HttpGet("{name}/{surName}/{index}")]
+        public ActionResult<string> Get(string name,string surName,int index2)
+        {
+            User user = db.Users.FirstOrDefault(x => x.Surname == surName && x.Name == name);
+            if (user == null)
+                return NotFound();
+
+            return new ObjectResult(user.Id);
+        }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> Get(int id)
@@ -59,9 +71,12 @@ namespace WebAPIApp.Controllers
         [HttpGet("{login}/{password}")]
         public async Task<ActionResult<User>> Get(string login,string password)
         {
-             User user = await db.Users.FirstOrDefaultAsync(x => x.Login == login &&
-                                                                 x.Password == password);
+            var sha256 = new SHA256Managed();
+            var passwordHash = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(password)));
 
+            User user = await db.Users.FirstOrDefaultAsync(x => x.Login == login && 
+                                                                 x.Password == passwordHash);
+          
             if (user == null)
                 return NotFound();
             return new ObjectResult(user);
@@ -78,6 +93,7 @@ namespace WebAPIApp.Controllers
             EditUser.Instrument = newUser.Instrument;
             EditUser.Sex = newUser.Sex;
             EditUser.Phone = newUser.Phone;
+            EditUser.Age = newUser.Age;
             EditUser.Describe = newUser.Describe;
 
             db.SaveChanges();
@@ -88,14 +104,27 @@ namespace WebAPIApp.Controllers
         public ActionResult<string> Post(User newUser)
         {
             int lastUserId = 0;
-           
+            var ExistUser = db.Users
+                          .Where(p => p.Login == newUser.Login)
+                          .FirstOrDefault();
+
+            if (ExistUser == null)
+            {
+                var sha256 = new SHA256Managed();
+                newUser.Password = Convert.ToBase64String(sha256.ComputeHash(Encoding.UTF8.GetBytes(newUser.Password)));
+
                 db.Users.Add(newUser);
                 db.SaveChanges();
 
-               var lastUser = db.Users
-                          .OrderBy(p => p.Id)
-                          .Last();
+                var lastUser = db.Users
+                           .OrderBy(p => p.Id)
+                           .Last();
                 lastUserId = lastUser.Id;
+            }
+            else
+            {
+                lastUserId = -1;
+            }
             return new ObjectResult(lastUserId.ToString());
         }
     }

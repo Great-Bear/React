@@ -8,7 +8,7 @@ class Signin extends React.Component{
         super(props);
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
         this.state = {
-         pathPage:"/UserPage/",
+         pathPage:"/UserPage/id=",
          isLogged:false,
         }
     }
@@ -44,12 +44,14 @@ class Signin extends React.Component{
         .then(
             user => {
                if(user.title == undefined){
-                this.setState((preState)=>{    
+                this.setState((preState)=>{  
                     return{
                         pathPage: preState.pathPage + user.id,
                         isLogged: true,
                     }
+                   
                 })
+               
                }
                else{
                    alert("unreal user");
