@@ -127,5 +127,56 @@ namespace WebAPIApp.Controllers
             }
             return new ObjectResult(lastUserId.ToString());
         }
+        [HttpPost("{idMain}/{idGuest}")]
+        public ActionResult<string> Post(int idMain, int idGuest)
+        {
+
+            var UserG = db.Users
+                          .Where(p => p.Id == idGuest)
+                          .FirstOrDefault();
+
+
+            var User = db.FollowersT
+                          .Where(p => p.IdOwner == idMain && p.UserId == idGuest)
+                          .ToList();
+
+
+                if (User.Count == 0)
+                {
+                    Followers newFollower = new Followers();
+                    newFollower.User = UserG;
+                    newFollower.IdOwner = idMain;
+                    db.FollowersT.Add(newFollower);
+                }
+                else
+                {
+                    db.FollowersT.Remove(User[0]);
+                }
+                db.SaveChanges();
+  
+            var Users = db.FollowersT
+                               .Where(p => p.IdOwner == idMain)
+                               .ToList();
+            return new ObjectResult(Users.Count().ToString());
+        }
+        [HttpGet("{id}/{id2}/{id3}/{id4}")]
+        public ActionResult<string> Get(int idM,int idG)
+        {
+            var Users = db.FollowersT
+                               .Where(p => p.UserId == idG)
+                               .ToList();
+
+            return new ObjectResult(Users.Count().ToString());
+        }
+
+        [HttpGet("{id}/{id2}/{id3}/{id4}/{id5}")]
+        public ActionResult<string> Get(int idM, int idG,int id3,int id4,int id5)
+        {
+            var Users = db.FollowersT
+                               .Where(p => p.IdOwner == idM)
+                               .ToList();
+
+            return new ObjectResult($"{idM} + {idG}");
+        }
     }
 }

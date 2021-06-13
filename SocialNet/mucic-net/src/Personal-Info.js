@@ -6,7 +6,7 @@ class Personal_info extends React.Component{
 
     constructor(props){
         super(props);
-     
+       
         this.state = {         
             countSubscribe: 0,
             name: "",
@@ -16,9 +16,9 @@ class Personal_info extends React.Component{
             phone: "",
             describe: "",
             age: "",
-            IsGuestPage: false
+            IsGuestPage: false,
+            textSubscribe: 'Subscrime'
         }
-        alert(props.currentUserID)
         this.SetId = props.setId;
         this.CurrUserId = props.currentUserID;
 
@@ -29,8 +29,6 @@ class Personal_info extends React.Component{
     componentDidMount(){
         let pathPage = window.location.href;
         let idUser;
-      // idUser = pathPage.substring(pathPage.lastIndexOf('/') + 1,pathPage.length);
-     // alert(this.CurrUserId);
       if(pathPage.lastIndexOf('id=') < pathPage.lastIndexOf('/'))
       {
         idUser = pathPage.substring(pathPage.lastIndexOf('id=') + 3, pathPage.lastIndexOf('/'));
@@ -63,17 +61,83 @@ class Personal_info extends React.Component{
                     sex: data.sex,
                     phone: data.phone,
                     age: data.age,
-                    describe: data.describe
+                    describe: data.describe,
                 }) 
                 this.SetId(idUser);  
             },
             error => {
                 if(this.id != -1)
                 {
-                    //alert("operation failed, call support");
+                   // alert("operation failed, call support");
                 }
             }
         )
+        let idUserG = pathPage.substring(pathPage.lastIndexOf('isGuest=') + 8, pathPage.length);
+        let idUserM = pathPage.substring(pathPage.lastIndexOf('id=') + 3, pathPage.lastIndexOf('/'));
+
+       /* fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8'
+            },
+          }).then(res => res.text())
+          .then(
+              idUser => {
+                  alert(idUser)
+                this.setState((prevState) => {     
+                    prevState.countSubscribe = idUser;           
+                    return {
+                        prevState
+                    }
+                });          
+              },
+              error => {
+                  alert("operation failed, call support");
+              }
+          )*/
+
+          fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}/2/2`)
+          .then(res => res.text())
+          .then(
+              data => {
+                  if(data == 0){                
+                  this.setState({                     
+                      textSubscribe: 'Unubscrime'
+                  }) 
+                }
+                else{
+                    this.setState({                     
+                        textSubscribe: 'Subscrime'
+                    }) 
+                }
+                this.setState((prevState) => {     
+                    prevState.countSubscribe = data;           
+                    return {
+                        prevState
+                    }
+                });          
+              },
+              error => {
+                      alert("operation failed, call support");
+              }
+          )
+          fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}/2/2/2`)
+          .then(res => res.text())
+          .then(
+              data2 => {                            
+                  alert(data2)       
+                this.setState((prevState) => {     
+                    prevState.countSubscribe = data2;           
+                    return {
+                        prevState
+                    }
+                });          
+              },
+              error => {
+                      alert("operation failed, call support");
+              }
+          )
+
         if(pathPage.includes("isGuest")){
             this.setState((prevState) => {
                 prevState.IsGuestPage = true;
@@ -92,14 +156,38 @@ class Personal_info extends React.Component{
         }
     }
     buttonClickHandler(){
-        alert();
-        this.setState((prevState) => {
-            prevState.countSubscribe++;
-            return {
-                countSubscribe: prevState.countSubscribe,
-            }
-        });
+        let pathPage = window.location.href;
+        let idUser = pathPage.substring(pathPage.lastIndexOf('isGuest=') + 8, pathPage.length);
+        let idUserM = pathPage.substring(pathPage.lastIndexOf('id=') + 3, pathPage.lastIndexOf('/'));
 
+        fetch(`https://localhost:44317/api/users/${idUserM}/${idUser}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json;charset=utf-8'
+            },
+          }).then(res => res.text())
+          .then(
+              idUser => {
+                this.setState((prevState) => {
+                    if(this.state.countSubscribe > idUser){
+                    this.setState({                     
+                        textSubscribe: 'Subscrime' 
+                    }) 
+                  }
+                  else{
+                      this.setState({                     
+                          textSubscribe: 'Unubscrime'
+                      }) 
+                  }
+                    return {
+                        countSubscribe: idUser,
+                    }
+                });          
+              },
+              error => {
+                  alert("operation failed, call support");
+              }
+          )
     }
 
     buttonClickChange(obj){
@@ -209,7 +297,7 @@ class Personal_info extends React.Component{
                         <span>My describe:</span><p class="PersInfo" id="Describe">{this.state.describe}</p><br/>
                     </div>                
                     <div>
-                        <button onClick={this.buttonClickHandler}>Subscribe</button>
+                        <button onClick={this.buttonClickHandler}>{this.state.textSubscribe}</button>
                         <span id="countSubscribe">   {this.state.countSubscribe}</span>
                     </div>
                 </div>

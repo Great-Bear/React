@@ -18,7 +18,7 @@ namespace APISocialNet.Models
         public string Describe { get; set; }
         public string Age { get; set; } = "Null";
         public byte[] Picture { get; set; } = null;
-        public ICollection<Followers> Followerss { get; set; }
+      
 
 
     }
