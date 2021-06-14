@@ -75,40 +75,20 @@ class Personal_info extends React.Component{
         let idUserG = pathPage.substring(pathPage.lastIndexOf('isGuest=') + 8, pathPage.length);
         let idUserM = pathPage.substring(pathPage.lastIndexOf('id=') + 3, pathPage.lastIndexOf('/'));
 
-       /* fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json;charset=utf-8'
-            },
-          }).then(res => res.text())
-          .then(
-              idUser => {
-                  alert(idUser)
-                this.setState((prevState) => {     
-                    prevState.countSubscribe = idUser;           
-                    return {
-                        prevState
-                    }
-                });          
-              },
-              error => {
-                  alert("operation failed, call support");
-              }
-          )*/
 
           fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}/2/2`)
           .then(res => res.text())
           .then(
               data => {
                   if(data == 0){                
-                  this.setState({                     
-                      textSubscribe: 'Unubscrime'
-                  }) 
+                    this.setState({                     
+                        textSubscribe: 'Subscrime'
+                    })
                 }
                 else{
                     this.setState({                     
-                        textSubscribe: 'Subscrime'
-                    }) 
+                        textSubscribe: 'Unubscrime'
+                    })                    
                 }
                 this.setState((prevState) => {     
                     prevState.countSubscribe = data;           
@@ -124,8 +104,7 @@ class Personal_info extends React.Component{
           fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}/2/2/2`)
           .then(res => res.text())
           .then(
-              data2 => {                            
-                  alert(data2)       
+              data2 => {                                 
                 this.setState((prevState) => {     
                     prevState.countSubscribe = data2;           
                     return {
@@ -226,7 +205,6 @@ class Personal_info extends React.Component{
             }
             if(pathPage.includes("id") == false){
                 idUser = this.CurrUserId;
-                alert(idUser);
             }
 
             idUser = parseInt(idUser);
@@ -256,7 +234,6 @@ class Personal_info extends React.Component{
 
                       }
                       else{
-                          alert(idUser);
                           alert("Error call support");
                       }
                       

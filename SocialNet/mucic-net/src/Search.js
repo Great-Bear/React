@@ -21,11 +21,16 @@ class Search extends React.Component{
         .then(
             data => {              
                 this.setState(()=>{   
-                    alert(data); 
-                    return{
-                        GoOtherPage: true,
-                        idGuestPage: data
+                    if(data != -1){
+                        return{
+                            GoOtherPage: true,
+                            idGuestPage: data
+                        }
                     }
+                    else{
+                        alert('Unreal User');
+                    }
+                    
                 })
             },
             error => {             

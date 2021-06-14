@@ -53,11 +53,12 @@ namespace WebAPIApp.Controllers
         [HttpGet("{name}/{surName}/{index}")]
         public ActionResult<string> Get(string name,string surName,int index2)
         {
+            int res = -1;
             User user = db.Users.FirstOrDefault(x => x.Surname == surName && x.Name == name);
-            if (user == null)
-                return NotFound();
+            if (user != null)
+                res = user.Id;
 
-            return new ObjectResult(user.Id);
+            return new ObjectResult(res);
         }
 
         [HttpGet("{id}")]
@@ -159,24 +160,24 @@ namespace WebAPIApp.Controllers
                                .ToList();
             return new ObjectResult(Users.Count().ToString());
         }
-        [HttpGet("{id}/{id2}/{id3}/{id4}")]
+        [HttpGet("{idM}/{idG}/{id9}/{id10}")]
         public ActionResult<string> Get(int idM,int idG)
         {
             var Users = db.FollowersT
-                               .Where(p => p.UserId == idG)
+                               .Where(p => p.UserId == idG && p.IdOwner == idM)
                                .ToList();
 
-            return new ObjectResult(Users.Count().ToString());
+              return new ObjectResult(Users.Count().ToString());
         }
 
-        [HttpGet("{id}/{id2}/{id3}/{id4}/{id5}")]
+        [HttpGet("{idM}/{idG}/{id3}/{id4}/{id5}")]
         public ActionResult<string> Get(int idM, int idG,int id3,int id4,int id5)
         {
             var Users = db.FollowersT
                                .Where(p => p.IdOwner == idM)
                                .ToList();
 
-            return new ObjectResult($"{idM} + {idG}");
+            return new ObjectResult(Users.Count.ToString());
         }
     }
 }
