@@ -116,6 +116,20 @@ class Personal_info extends React.Component{
                       alert("operation failed, call support");
               }
           )
+          /*fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}/2/2/2/2`)
+          .then(res => res.blob())
+          .then(
+              data => {                                 
+               console.log(data)      
+               var reader = new FileReader();
+               var objectURL = URL.createObjectURL(data);
+               reader.readAsArrayBuffer(data); 
+               alert(data.name);
+              },
+              error => {
+                      alert("operation failed, call support");
+              }
+          )*/
 
         if(pathPage.includes("isGuest")){
             this.setState((prevState) => {

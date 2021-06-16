@@ -8,6 +8,7 @@ using APISocialNet.Models;
 using System.Security.Cryptography;
 using System;
 using System.Text;
+using System.IO;
 
 namespace WebAPIApp.Controllers
 {
@@ -178,6 +179,14 @@ namespace WebAPIApp.Controllers
                                .ToList();
 
             return new ObjectResult(Users.Count.ToString());
+        }
+        [HttpGet("{idM}/{idG}/{id3}/{id4}/{id5}/{id6}")]
+        public ActionResult<FileResult> Get(int idM, int idG, int id3, int id4, int id5,int id6)
+        {
+            byte[] mas = System.IO.File.ReadAllBytes(@"D:\HM\React\SocialNet\APISocialNet\APISocialNet\Imgs\Photo.png");
+            string file_type = "img/png";
+            string file_name = "PDFIcon.pdf";
+            return File(mas, file_type, file_name);
         }
     }
 }
