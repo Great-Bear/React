@@ -7,12 +7,21 @@ class Signin extends React.Component{
     constructor(props){
         super(props);
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
+        this.ClickSingUp = this.ClickSingUp.bind(this);
         this.state = {
          pathPage:"/UserPage/id=",
          isLogged:false,
+         SingUp: false,
         }
-    }
 
+    }
+    ClickSingUp(){
+        this.setState((preState)=>{  
+            return{
+                SingUp: true,
+            }         
+        })
+    }
     buttonClickHandler(event){
         event.preventDefault();
 
@@ -67,11 +76,14 @@ class Signin extends React.Component{
     }
 render(){
     if(this.state.isLogged){
-
       return(<Redirect to={{
         pathname: `${this.state.pathPage}`,    
     }}/>)
-
+    }
+    else if(this.state.SingUp){
+        return(<Redirect to={{
+          pathname: `/SingUp`,    
+      }}/>)
     }
     else{
     return(           
@@ -88,8 +100,11 @@ render(){
                 <input type="password" className="form-control"  id="floatingPassword" placeholder="Password"/>             
             </div>
            
-            <button className="w-100 btn btn-lg btn-primary" onClick={this.buttonClickHandler}> Sign in</button>
-            <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>       
+            <button className="w-100 btn btn-lg btn-primary" onClick={this.buttonClickHandler}> Sign in</button>         
+            <a href="#" onClick={this.ClickSingUp}>Sing Up</a>   
+            <br/>
+            <p className="mt-5 mb-3 text-muted">&copy; 2017–2021</p>    
+           
         </form>
         </main>
         )

@@ -25,7 +25,7 @@ namespace WebAPIApp.Controllers
                 db.Users.Add(new User
                 {
                     Login = 1.ToString(),
-                    Password = 1234.ToString(),
+                    Password = "A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=",
                     Name = "StickMan",
                     Surname = "Black",
                     Instrument = "Perforator",
@@ -35,7 +35,7 @@ namespace WebAPIApp.Controllers
                 db.Users.Add(new User
                 {
                     Login = 2.ToString(),
-                    Password = 1234.ToString(),
+                    Password = "A6xnQhbz4Vx2HuGl4lXwZ5U2I8iziLRFnhP5eNfIRvQ=",
                     Name = "StickWomen",
                     Surname = "Black",
                     Instrument = "Piano",
