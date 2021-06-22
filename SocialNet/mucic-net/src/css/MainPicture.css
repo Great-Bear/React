@@ -1,6 +1,7 @@
 #Avatar
 {
     width: 145px;
-    height: 290px;   
+    height: 300px;   
     float: left;
+    background-color: gray;
 }

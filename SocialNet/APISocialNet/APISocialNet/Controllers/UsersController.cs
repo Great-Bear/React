@@ -51,16 +51,41 @@ namespace WebAPIApp.Controllers
         {
             return await db.Users.ToListAsync();
         }
-        [HttpGet("{name}/{surName}/{index}")]
-        public ActionResult<string> Get(string name,string surName,int index2)
-        {
-            int res = -1;
-            User user = db.Users.FirstOrDefault(x => x.Surname == surName && x.Name == name);
-            if (user != null)
-                res = user.Id;
 
-            return new ObjectResult(res);
+        [HttpGet("{name}/{surName}/{index}")]
+        public ActionResult<IEnumerable<User>> Get(string name, string surName, int index2)
+        {
+            IQueryable<User> resultList;
+            
+            if (name != "f" && surName != "f")
+            {
+                resultList = db.Users
+                              .Where(p => p.Surname == surName && p.Name == name);
+            }
+            else if(surName != "f")
+            {
+                resultList = db.Users
+                              .Where(p => p.Surname == surName);
+            }
+            else
+            {
+                return new ObjectResult(new List<User>());
+            }
+            return new ObjectResult(resultList.ToList());
         }
+
+
+
+        /* [HttpGet("{name}/{surName}/{index}")]
+         public ActionResult<string> Get(string name,string surName,int index2)
+         {
+             int res = -1;
+             User user = db.Users.FirstOrDefault(x => x.Surname == surName && x.Name == name);
+             if (user != null)
+                 res = user.Id;
+
+             return new ObjectResult(res);
+         }*/
 
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> Get(int id)
