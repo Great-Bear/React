@@ -57,12 +57,12 @@ namespace WebAPIApp.Controllers
         {
             IQueryable<User> resultList;
             
-            if (name != "f" && surName != "f")
+            if (name != "-1" && surName != "-1")
             {
                 resultList = db.Users
                               .Where(p => p.Surname == surName && p.Name == name);
             }
-            else if(surName != "f")
+            else if(surName != "-1")
             {
                 resultList = db.Users
                               .Where(p => p.Surname == surName);

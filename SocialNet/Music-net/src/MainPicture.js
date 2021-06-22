@@ -6,7 +6,7 @@ import './css/MainPicture.css'
 
 function MainPicture(){
     return(
-        <img id="Avatar"></img>
+        <img id="Avatar" src={Avatar} alt={"avatar"}></img>      
     )
 }
 export default MainPicture

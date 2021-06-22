@@ -2,10 +2,7 @@ import React from 'react'
 import Nav from './Nav'
 import {Redirect} from 'react-router-dom'
 import './css/Search.css'
-const numbers = [1, 2, 3, 4, 5];
-const listItems = numbers.map((number) =>
-  <li>{number}</li>
-);
+
 class Search extends React.Component{
 
     constructor(props){
@@ -28,10 +25,10 @@ class Search extends React.Component{
         let surName = document.getElementById('surNameSearch').value;
         
         if(name.length == 0){
-            name = 'f';
+            name = '-1';
         }
         if(surName.length == 0){
-            surName = 'f';
+            surName = '-1';
         }
         fetch(`https://localhost:44317/api/users/${name}/${surName}/2`)
        .then(res => res.json())
@@ -53,8 +50,6 @@ class Search extends React.Component{
                 else{
                     alert('Unreal User');
                 }
-                    
-
             },
             error => {             
                 alert("error");

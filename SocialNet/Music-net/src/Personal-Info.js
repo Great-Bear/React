@@ -69,13 +69,12 @@ class Personal_info extends React.Component{
                     phone: data.phone,
                     age: data.age,
                     describe: data.describe,
-                }) 
-                //this.SetId(idUser);  
+                })  
             },
             error => {
                 if(this.id != -1)
                 {
-                   // alert("operation failed, call support");
+                    alert("operation failed, call support");
                 }
             }
         )
@@ -111,9 +110,9 @@ class Personal_info extends React.Component{
           fetch(`https://localhost:44317/api/users/${idUserM}/${idUserG}/2/2/2`)
           .then(res => res.text())
           .then(
-              data2 => {                                 
+              countSubscribe => {                                 
                 this.setState((prevState) => {     
-                    prevState.countSubscribe = data2;           
+                    prevState.countSubscribe = countSubscribe;           
                     return {
                         prevState
                     }
