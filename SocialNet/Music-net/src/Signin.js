@@ -12,8 +12,7 @@ class Signin extends React.Component{
          pathPage:"/UserPage/id=",
          isLogged:false,
          SingUp: false,
-        }
-
+        }       
     }
     ClickSingUp(){
         this.setState((preState)=>{  
@@ -46,8 +45,7 @@ class Signin extends React.Component{
          if(isInvalidForm){
              return;
          }
-
-
+        
         fetch(`https://localhost:44317/api/users/${document.getElementById("floatingInput").value}/${document.getElementById("floatingPassword").value}`)
         .then(res => res.json())
         .then(

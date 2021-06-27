@@ -1,5 +1,7 @@
 import React from 'react'
+import Avatar from './Imgs/Photo.png'
 
+import './css/MainPicture.css'
 import './css/Personal-Info.css'
 
 class Personal_info extends React.Component{
@@ -25,6 +27,7 @@ class Personal_info extends React.Component{
             phone: "",
             describe: "",
             age: "",
+            pathImg: "t",
             IsGuestPage: false,
             textSubscribe: 'Subscrime',
             IsChangeForm: false,
@@ -139,6 +142,24 @@ class Personal_info extends React.Component{
                 }
             });
         }
+        fetch('https://localhost:44317/api/users/fsd/1/2/3/4/5/6').
+        then(res => res.blob()).
+        then(
+            picture =>{
+               let url = window.URL;
+               let imageSrc = url.createObjectURL(picture);   
+                this.setState((prevState) => {
+
+                    prevState.pathImg = imageSrc;
+                    return {
+                        prevState
+                    }
+                });
+            },
+            error => {
+               alert('Load picture is failed');
+            }
+        )
     }
     buttonClickHandler(){
         let pathPage = window.location.href;
@@ -172,7 +193,7 @@ class Personal_info extends React.Component{
               error => {
                   alert("operation failed, call support");
               }
-          )
+        )       
     }
 
     buttonClickChange(obj){
@@ -310,58 +331,65 @@ class Personal_info extends React.Component{
         }
         else if(this.state.IsChangeForm){
             return(
-            <div id="personal-info">
                 <div>
-                    <span>Name:</span> <input type="text" value={this.state.name} onChange={this.ChangeForm} class="inptChange" id="Name"/>
+                    <img id="Avatar" src={Avatar} alt={"avatar"}></img>               
+                    <div id="personal-info">                
+                        <div>
+                            <span>Name:</span> <input type="text" value={this.state.name} onChange={this.ChangeForm} class="inptChange" id="Name"/>
+                        </div>
+                        <div>
+                            <span>SurName: </span><input type="text" value={this.state.surname} onChange={this.ChangeForm} class="inptChange" id="SurName"/>
+                        </div>
+                        <div>
+                            <span>Instrument: </span><input type="text" value={this.state.instrument} onChange={this.ChangeForm} class="inptChange" id="Instrument"/>
+                        </div>
+                        <div>
+                            <span>Sex: </span><input type="text" value={this.state.sex} onChange={this.ChangeForm} class="inptChange" id="Sex"/>
+                        </div>
+                        <div>
+                            <span>Phone: </span><input type="text" value={this.state.phone} onChange={this.ChangeForm} class="inptChange" id="Phone"/>
+                        </div>
+                        <div>
+                            <span>Age:</span><input type="text" value={this.state.age} onChange={this.ChangeForm} class="inptChange" id="Age"/>
+                        </div>
+                        <div>
+                            <span>My describe:</span><input type="text" value={this.state.describe} onChange={this.ChangeForm} class="inptChange" id="Describe"/>
+                        </div>
+                        <button onClick={this.state.changeFunc} id="changeForm">{this.state.changeTextBut}</button>
+                    </div>
                 </div>
-                <div>
-                    <span>SurName: </span><input type="text" value={this.state.surname} onChange={this.ChangeForm} class="inptChange" id="SurName"/>
-                </div>
-                <div>
-                    <span>Instrument: </span><input type="text" value={this.state.instrument} onChange={this.ChangeForm} class="inptChange" id="Instrument"/>
-                </div>
-                <div>
-                    <span>Sex: </span><input type="text" value={this.state.sex} onChange={this.ChangeForm} class="inptChange" id="Sex"/>
-                </div>
-                <div>
-                    <span>Phone: </span><input type="text" value={this.state.phone} onChange={this.ChangeForm} class="inptChange" id="Phone"/>
-                </div>
-                <div>
-                    <span>Age:</span><input type="text" value={this.state.age} onChange={this.ChangeForm} class="inptChange" id="Age"/>
-                </div>
-                <div>
-                    <span>My describe:</span><input type="text" value={this.state.describe} onChange={this.ChangeForm} class="inptChange" id="Describe"/>
-                </div>
-                <button onClick={this.state.changeFunc} id="changeForm">{this.state.changeTextBut}</button>
-            </div>
             )
         }
         else
         {    
         return(
-            <div id="personal-info">
-                <div>
-                    <span>Name: </span><p class="PersInfo" id="Name">{this.state.name}</p>
+            <div>
+              <img id="Avatar" src={this.state.pathImg}  alt={"avatar"}></img>     
+              <p>{this.pathImg}</p>
+                <div id="personal-info">                  
+                    <div>
+                        <span>Name: </span><p class="PersInfo" id="Name">{this.state.name}</p>
+                    </div>
+                    <div>
+                        <span>SurName: </span><p class="PersInfo" id="SurName">{this.state.surname}</p>
+                    </div>
+                    <div>
+                        <span>Instrument: </span><p class="PersInfo" id="Instrument">{this.state.instrument}</p>
+                    </div>
+                    <div>
+                        <span>Sex: </span><p class="PersInfo" id="Sex">{this.state.sex}</p><br/>
+                    </div>
+                    <div>
+                        <span>Phone: </span><p class="PersInfo" id="Phone">{this.state.phone}</p><br/>
+                    </div>
+                    <div>
+                        <span>Age:</span><p class="PersInfo" id="Age">{this.state.age}</p><br/>
+                    </div>
+                    <div>
+                        <span>My describe:</span><p class="PersInfo" id="Describe">{this.state.describe}</p><br/>
+                    </div>
+                    <button onClick={this.state.changeFunc} id="changeForm">{this.state.changeTextBut}</button>
                 </div>
-                <div>
-                    <span>SurName: </span><p class="PersInfo" id="SurName">{this.state.surname}</p>
-                </div>
-                <div>
-                    <span>Instrument: </span><p class="PersInfo" id="Instrument">{this.state.instrument}</p>
-                </div>
-                <div>
-                    <span>Sex: </span><p class="PersInfo" id="Sex">{this.state.sex}</p><br/>
-                </div>
-                <div>
-                    <span>Phone: </span><p class="PersInfo" id="Phone">{this.state.phone}</p><br/>
-                </div>
-                <div>
-                    <span>Age:</span><p class="PersInfo" id="Age">{this.state.age}</p><br/>
-                </div>
-                <div>
-                    <span>My describe:</span><p class="PersInfo" id="Describe">{this.state.describe}</p><br/>
-                </div>
-                <button onClick={this.state.changeFunc} id="changeForm">{this.state.changeTextBut}</button>
             </div>
         )
     }
