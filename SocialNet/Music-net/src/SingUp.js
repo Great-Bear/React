@@ -48,6 +48,7 @@ class SingUp extends React.Component{
           }).then(res => res.text())
           .then(
               idUser => {
+                  alert(idUser)
                   if(idUser > 0){             
                       this.setState((preState)=>{    
                           return{

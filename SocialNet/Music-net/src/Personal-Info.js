@@ -300,6 +300,9 @@ class Personal_info extends React.Component{
     render(){
         if(this.state.IsGuestPage == true){
             return(
+                <div>
+                <img id="Avatar" src={this.state.pathImg}  alt={"avatar"}></img>     
+                    <p>{this.pathImg}</p>
                 <div id="personal-info">
                     <div>
                         <span>Name: </span><p class="PersInfo" id="Name">{this.state.name}</p>
@@ -326,6 +329,7 @@ class Personal_info extends React.Component{
                         <button onClick={this.buttonClickHandler}>{this.state.textSubscribe}</button>
                         <span id="countSubscribe">   {this.state.countSubscribe}</span>
                     </div>
+                </div>
                 </div>
             )
         }
