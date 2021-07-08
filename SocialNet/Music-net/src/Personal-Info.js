@@ -1,5 +1,5 @@
 import React from 'react'
-import Avatar from './Imgs/Photo.png'
+import Avatar from './Imgs/Smile2.png'
 
 import './css/MainPicture.css'
 import './css/Personal-Info.css'
@@ -114,7 +114,8 @@ class Personal_info extends React.Component{
           .then(res => res.text())
           .then(
               countSubscribe => {                                 
-                this.setState((prevState) => {     
+                this.setState((prevState) => {    
+                    console.log(countSubscribe); 
                     prevState.countSubscribe = countSubscribe;           
                     return {
                         prevState
@@ -301,35 +302,34 @@ class Personal_info extends React.Component{
         if(this.state.IsGuestPage == true){
             return(
                 <div>
-                <img id="Avatar" src={this.state.pathImg}  alt={"avatar"}></img>     
-                    <p>{this.pathImg}</p>
-                <div id="personal-info">
-                    <div>
-                        <span>Name: </span><p class="PersInfo" id="Name">{this.state.name}</p>
+                   <img id="Avatar" src={Avatar} alt={"avatar"}></img>
+                    <div id="personal-info">                     
+                        <div>
+                            <span>Name: </span><p class="PersInfo" id="Name">{this.state.name}</p>
+                        </div>
+                        <div>
+                            <span>SurName: </span><p class="PersInfo" id="SurName">{this.state.surname}</p>
+                        </div>
+                        <div>
+                            <span>Instrument: </span><p class="PersInfo" id="Instrument">{this.state.instrument}</p>
+                        </div>
+                        <div>
+                            <span>Sex: </span><p class="PersInfo" id="Sex">{this.state.sex}</p><br/>
+                        </div>
+                        <div>
+                            <span>Phone: </span><p class="PersInfo" id="Phone">{this.state.phone}</p><br/>
+                        </div>
+                        <div>
+                            <span>Age:</span><p class="PersInfo" id="Age">{this.state.age}</p><br/>
+                        </div>
+                        <div>
+                            <span>My describe:</span><p class="PersInfo" id="Describe">{this.state.describe}</p><br/>
+                        </div>                
+                        <div>
+                            <button onClick={this.buttonClickHandler}>{this.state.textSubscribe}</button>
+                            <span id="countSubscribe">   {this.state.countSubscribe}</span>
+                        </div>
                     </div>
-                    <div>
-                        <span>SurName: </span><p class="PersInfo" id="SurName">{this.state.surname}</p>
-                    </div>
-                    <div>
-                        <span>Instrument: </span><p class="PersInfo" id="Instrument">{this.state.instrument}</p>
-                    </div>
-                    <div>
-                        <span>Sex: </span><p class="PersInfo" id="Sex">{this.state.sex}</p><br/>
-                    </div>
-                    <div>
-                        <span>Phone: </span><p class="PersInfo" id="Phone">{this.state.phone}</p><br/>
-                    </div>
-                    <div>
-                        <span>Age:</span><p class="PersInfo" id="Age">{this.state.age}</p><br/>
-                    </div>
-                    <div>
-                        <span>My describe:</span><p class="PersInfo" id="Describe">{this.state.describe}</p><br/>
-                    </div>                
-                    <div>
-                        <button onClick={this.buttonClickHandler}>{this.state.textSubscribe}</button>
-                        <span id="countSubscribe">   {this.state.countSubscribe}</span>
-                    </div>
-                </div>
                 </div>
             )
         }

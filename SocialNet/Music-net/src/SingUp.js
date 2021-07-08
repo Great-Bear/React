@@ -8,6 +8,8 @@ class SingUp extends React.Component{
         super(props);
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
         this.CheckValidForm = this.CheckValidForm.bind(this);
+        this.SetId = props.SetId;
+        this.SetId2 = props.SetId2;
         this.state = {
          pathPage:"/UserPage/id=",
          isLogged: false,
@@ -48,9 +50,10 @@ class SingUp extends React.Component{
           }).then(res => res.text())
           .then(
               idUser => {
-                  alert(idUser)
                   if(idUser > 0){             
-                      this.setState((preState)=>{    
+                      this.setState((preState)=>{   
+                        this.SetId(idUser); 
+                        this.SetId2(idUser);
                           return{
                               pathPage: preState.pathPage + idUser,
                               isLogged: true,
@@ -84,13 +87,13 @@ class SingUp extends React.Component{
         else{
             NameError = '';
         }
-
         let SurNameError;
         if(user.SurName.length == 0){
             SurNameError = 'Length must be 1-32 symbol';
         }
         else if(!regName.test(user.SurName)){
-            SurNameError = "Must includes only letter";
+          //  SurNameError = "Must includes only letter";
+          SurNameError = '';
         }
         else{
             SurNameError = '';

@@ -38,8 +38,8 @@ ReactDOM.render(
     <div>
        <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={()=> <Signin/> } />
-                <Route exact path="/SingUp" component={()=> <SingUp/> } />
+                <Route exact path="/" children={()=> <Signin SetId={SetIdUser} SetId2={SetIdUser2}/> } />
+                <Route exact path="/SingUp" children={()=> <SingUp SetId={SetIdUser} SetId2={SetIdUser2}/> } />
                 <Route path="/about" children={()=><h2> <About SetPreButton={SetPreButton} ActiveButton={ActiveButton} /> </h2>} />  
                 <Route path="/UserPage/:id?" children={()=> <UserPage SetId={SetIdUser}  currentUserID={idUser} />}  />
                 <Route path="/UserPage2/:id?" children={()=> <UserPage2 SetId={SetIdUser2}  currentUserID={idUser2} />}/>            

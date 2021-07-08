@@ -8,6 +8,8 @@ class Signin extends React.Component{
         super(props);
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
         this.ClickSingUp = this.ClickSingUp.bind(this);
+        this.setID = props.SetId;
+        this.setID2 = props.SetId2;
         this.state = {
          pathPage:"/UserPage/id=",
          isLogged:false,
@@ -52,6 +54,8 @@ class Signin extends React.Component{
             user => {
                if(user.title == undefined){
                 this.setState((preState)=>{  
+                    this.setID(user.id);
+                    this.setID2(user.id);
                     return{
                         pathPage: preState.pathPage + user.id,
                         isLogged: true,

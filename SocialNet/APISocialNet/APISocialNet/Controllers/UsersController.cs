@@ -96,7 +96,7 @@ namespace WebAPIApp.Controllers
             return new ObjectResult(user);
         }
         
-       /* [HttpPut]
+        [HttpPut]
         public ActionResult<string> Put(User newUser)
         {
               var EditUser = db.Users
@@ -114,8 +114,8 @@ namespace WebAPIApp.Controllers
             db.SaveChanges();
 
             return new ObjectResult(1);
-        }*/
-      /*  [HttpPost]
+        }
+        [HttpPost]
         public ActionResult<string> Post(User newUser)
         {
             int lastUserId = 0;
@@ -141,7 +141,7 @@ namespace WebAPIApp.Controllers
                 lastUserId = -1;
             }
             return new ObjectResult(lastUserId.ToString());
-        }*/
+        }
         [HttpPost("{idMain}/{idGuest}")]
         public ActionResult<string> Post(int idMain, int idGuest)
         {
@@ -193,18 +193,11 @@ namespace WebAPIApp.Controllers
 
             return new ObjectResult(Users.Count.ToString());
         }
-        [HttpGet("{idM}/{idG}/{id3}/{id4}/{id5}/{id6}")]
-        public ActionResult<FileResult> Get(int idM, int idG, int id3, int id4, int id5,int id6)
-        {
-            byte[] mas = System.IO.File.ReadAllBytes(@"D:\HM\React\SocialNet\APISocialNet\APISocialNet\Imgs\Photo.png");
-            string file_type = "img/png";
-            string file_name = "PDFIcon.pdf";
-            return File(mas, file_type, file_name);
-        }
+        
         [HttpGet("{fileName}/{id1}/{id2}/{id3}/{id4}/{id5}/{id6}")]
         public FileResult GetFile(string fileName)
         {
-            fileName = "Photo.png";
+            fileName = "Smile2.png";
             foreach (var item in Directory.GetFiles(@".\Img\"))
             {
                 if (item.IndexOf(fileName) > 0)
@@ -218,15 +211,6 @@ namespace WebAPIApp.Controllers
                 }
             }
             return null;
-        }
-        [HttpPost]
-        public string Post(APISocialNet.Models.FormData file)
-        {
-
-            int a = 1;
-            int b = 2;
-            return "ok";
-
         }
     }
 }
